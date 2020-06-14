@@ -26,7 +26,7 @@
 
               if ($_SESSION["foto"] == "" ) {
  
-                echo '<img src="Vistas/img/defecto.png" style="width: 30px" class "user-image" alt="user image"' ;
+                echo '<img src="http://localhost/clinica/Vistas/img/defecto.png" style="width: 30px" class "user-image" alt="user image"' ;
                 # code...
               }else {
 
