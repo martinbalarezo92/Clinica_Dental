@@ -94,7 +94,7 @@ class SecretariasC{
 
 	public function EditarPerfilSecretaria(){
 
-		$tablaBD = "Secretarias";
+		$tablaBD = "secretarias";
 
 		$id = $_SESSION["id"];
 
@@ -110,7 +110,7 @@ class SecretariasC{
 							
 							<h2>Nombre: </h2>
 							<input type="text" class="input-lg" name="nombreP" value="'.$resultado["nombre"].'">
-							<input type="text" class="input-lg" name="idP" value="'.$resultado["id"].'">
+							<input type="hidden" class="input-lg" name="idP" value="'.$resultado["id"].'">
 
 							<h2>Apellido: </h2>
 							<input type="text" class="input-lg" name="apellidoP" value="'.$resultado["apellido"].'">
@@ -137,7 +137,7 @@ class SecretariasC{
 							}else{
 
 								echo '<img src="http://localhost/clinica/'.$resultado["foto"].'" class="img-responsive" width="200px;">';
-								
+
 
 							}
 
@@ -145,9 +145,9 @@ class SecretariasC{
 							
 							echo '<input type="hidden" name="imgActual" value="'.$resultado["foto"].'">
 
-							<br><br>
+						<br><br>
 
-							<button type="submit" class="btn btn-success">Guardar Cambios</button>
+						<button type="submit" class="btn btn-success">Guardar Cambios</button>
 
 						</div>
 
@@ -156,6 +156,71 @@ class SecretariasC{
 				</form>
 
 		';
+
+	}
+
+	///////////////////////////// Actualizar Perfil Secretaria
+
+	public function ActualizarPerfilSecretariaC(){
+
+		if(isset($_POST["idP"])){
+
+			$rutaImg = $_POST["imgActual"];
+
+			if(isset($_FILES["imgP"]["tmp_name"]) && !empty($_FILES["imgP"]["tmp_name"])){
+
+				if(!empty($_POST["imgActual"])){
+
+					unlink($_POST["imgActual"]);
+
+				}
+
+
+				if($_FILES["imgP"]["type"] == "image/jpeg"){
+
+					$nombre = mt_rand(10,99);
+
+					$rutaImg = "Vistas/img/Secretarias/S-".$nombre.".jpg";
+
+					$foto = imagecreatefromjpeg($_FILES["imgP"]["tmp_name"]);
+
+					imagejpeg($foto, $rutaImg);
+
+				}
+
+				if($_FILES["imgP"]["type"] == "image/png"){
+
+					$nombre = mt_rand(10,99);
+
+					$rutaImg = "Vistas/img/Secretarias/S-".$nombre.".png";
+
+					$foto = imagecreatefrompng($_FILES["imgP"]["tmp_name"]);
+
+					imagepng($foto, $rutaImg);
+
+				}
+
+			}
+
+
+			$tablaBD = "secretarias";
+
+			$datosC = array("id"=>$_POST["idP"], "usuario"=>$_POST["usuarioP"], "apellido"=>$_POST["apellidoP"], "nombre"=>$_POST["nombreP"], "clave"=>$_POST["claveP"], "foto"=>$rutaImg);
+
+			$resultado = SecretariasM::ActualizarPerfilSecretariaM($tablaBD, $datosC);
+
+			if($resultado == true){
+
+				echo '<script>
+
+				window.location = "http://localhost/clinica/perfil-S/'.$_SESSION["id"].'";
+				</script>';
+
+			}
+
+		}
+
+
 
 	}
 

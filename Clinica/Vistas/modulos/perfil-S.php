@@ -26,6 +26,8 @@ if($_SESSION["rol"] != "secretaria"){
 				$editarPerfil = new secretariasC();
 				$editarPerfil -> EditarPerfilSecretaria();
 
+				$editarPerfil -> ActualizarPerfilSecretariaC();
+
 				?>
 				
 				
