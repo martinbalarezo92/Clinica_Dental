@@ -47,7 +47,13 @@ echo '<div class="wrapper">';
 
 include "modulos/cabecera.php";
 
-include "modulos/menu.php";
+if($_SESSION["rol"] == "secretaria"){
+
+  include "modulos/menuSecretaria.php";
+
+}
+
+
 
 $url = array();
 
@@ -55,7 +61,7 @@ if(isset($_GET["url"])){
   
   $url = explode("/", $_GET["url"]);
 
-  if ($url[0] == "inicio" || $url[0] == "salir" || $url[0] == "perfil-secretaria" || $url[0] == "perfil-S") {
+  if ($url[0] == "inicio" || $url[0] == "salir" || $url[0] == "perfil-secretaria" || $url[0] == "perfil-S" || $url[0] == "consultorios" ) {
     # code...
     include "modulos/".$url[0].".php";
  

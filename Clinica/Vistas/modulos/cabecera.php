@@ -26,17 +26,20 @@
 
               if ($_SESSION["foto"] == "" ) {
  
-                echo '<img src="http://localhost/clinica/Vistas/img/defecto.png" style="width: 30px" class "user-image" alt="user image"' ;
+                echo '<img src="http://localhost/clinica/Vistas/img/defecto.png" style="width: 30px" class "user-image" alt="user image">' ;
                 # code...
               }else {
 
-                echo '<img src="http://localhost/Vistas/img/'.($_SESSION["foto"]).'" class "user-image" alt="user image"';
+                echo '
+               
+                <img src="http://localhost/clinica/'.$_SESSION["foto"].'" class="user-image" alt="User Image">'; 
+
+               // <img src="http://localhost/Vistas/img/Secretarias/'.($_SESSION["foto"]).'" class "user-image" alt="user image"'; 
 
               }
 
               ?>
 
-              <img src="Vistas/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
 
               <span class="hidden-xs"><?php echo $_SESSION["nombre"];echo " ";echo $_SESSION["apellido"]; echo " "  ?></span>
 
