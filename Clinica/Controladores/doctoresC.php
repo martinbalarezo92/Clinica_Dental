@@ -27,4 +27,17 @@ class DoctoresC{
 
 	}
 
+
+//Mostrat Doctores
+static public function VerDoctoresC($columna, $valor){
+
+	$tablaBD = "doctores";
+
+	$resultado = doctoresM::VerDoctoresM($tablaBD, $columna, $valor);
+
+	return $resultado;
+
+}
+
+
 }

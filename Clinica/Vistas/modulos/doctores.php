@@ -60,12 +60,12 @@ if($_SESSION["rol"] != "secretaria"){
 
 
 						
-						<!-- <?php
+						<?php
 
 						$columna = null;
 						$valor = null;
 
-						$resultado = ConsultoriosC::VerConsultoriosC($columna, $valor);
+						$resultado = DoctoresC::VerDoctoresC($columna, $valor);
 
 						foreach ($resultado as $key => $value) {
 							# code...
@@ -76,7 +76,48 @@ if($_SESSION["rol"] != "secretaria"){
 							
 							<td>'.($key+1).'</td>
 
+							<td>'.$value["apellido"].'</td>
 							<td>'.$value["nombre"].'</td>
+							';
+
+							if($value["foto"] == ""){
+
+								echo'
+
+								<td>
+
+									<img src="Vistas/img/defecto.png" width="40px">
+
+								</td>
+
+								';
+
+							}else{
+
+								echo'
+
+								<td>
+
+									<img src="'.$value["foto"].'" width="40px">
+
+								</td>
+
+								';
+
+							}
+
+							$columna = "id";
+							$valor = $value["id_consultorio"];
+
+							$consultorio = ConsultoriosC::VerConsultoriosC($columna, $valor);
+
+							echo'
+
+							<td>'.$consultorio["nombre"].'</td>
+
+							<td>'.$value["usuario"].'</td>
+
+							<td>'.$value["clave"].'</td>
 
 							<td>
 								
@@ -104,7 +145,7 @@ if($_SESSION["rol"] != "secretaria"){
 
 						}
 
-						?> -->
+						?>
 
 						
 
