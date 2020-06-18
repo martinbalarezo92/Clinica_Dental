@@ -40,7 +40,7 @@ if($_SESSION["rol"] != "secretaria"){
 
 				<?php
 
-				$crearC = new ConsultorioC();
+				$crearC = new ConsultoriosC();
 				$crearC -> CrearConsultorioC()
 
 				?>
@@ -66,23 +66,35 @@ if($_SESSION["rol"] != "secretaria"){
 
 					<tbody>
 						
-						<tr>
-							
-							<td>1</td>
+						<?php
 
-							<td>cardiologia</td>
+						$columna = null;
+						$valor = null;
+
+						$resultado = ConsultoriosC::VerConsultoriosC($columna, $valor);
+
+						foreach ($resultado as $key => $value) {
+							# code...
+
+							echo '
+
+							<tr>
+							
+							<td>'.($key+1).'</td>
+
+							<td>'.$value["nombre"].'</td>
 
 							<td>
 								
 								<div class="btn-group">
 									
-									<a href="">
+									<a href=http://localhost/clinica/">
 										
 										<button class="btn btn-success"><i class="fa fa-pencil"></i> Editar</button>
 
 									</a>
 
-									<a href="">
+									<a href="http://localhost/clinica/">
 										
 										<button class="btn btn-danger"><i class="fa fa-times"></i> Borrar</button>
 
@@ -93,6 +105,14 @@ if($_SESSION["rol"] != "secretaria"){
 							</td>
 
 						</tr>
+
+							';
+
+						}
+
+						?>
+
+						
 
 					</tbody>
 

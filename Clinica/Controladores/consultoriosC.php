@@ -1,6 +1,6 @@
 <?php
 
-class ConsultorioC{
+class ConsultoriosC{
 
 	//Crear consultorios
 	public function CrearConsultorioC(){
@@ -26,6 +26,17 @@ class ConsultorioC{
 
 	}
 
+
+	//Ver Consultorios
+	static public function VerConsultoriosC($columna, $valor){
+
+		$tablaBD = "consultorios";
+
+		$resultado = ConsultoriosM::VerConsultoriosM($tablaBD, $columna, $valor);
+
+		return $resultado;
+
+	}
 
 
 }
