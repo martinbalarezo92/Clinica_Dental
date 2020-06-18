@@ -88,7 +88,7 @@ if($_SESSION["rol"] != "secretaria"){
 								
 								<div class="btn-group">
 									
-									<a href=http://localhost/clinica/">
+									<a href=http://localhost/clinica/E-C/'.$value["id"].'>
 										
 										<button class="btn btn-success"><i class="fa fa-pencil"></i> Editar</button>
 

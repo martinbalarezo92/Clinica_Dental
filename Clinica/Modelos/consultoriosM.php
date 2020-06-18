@@ -71,5 +71,23 @@ class ConsultoriosM extends conexionBD {
 
 	}
 
+	// Editar Consultorio
+
+	static public function EditarConsultorioM($tablaBD, $id){
+
+		$pdo = ConexionBD::cBD()->prepare("SELECT id, nombre FROM $tablaBD WHERE id = :id");
+
+		$pdo -> bindParam(":id", $id , PDO::PARAM_INT);
+
+		$pdo -> execute();
+		
+		return $pdo -> fetch();
+
+		$pdo -> close();
+		
+		$pdo = null;
+
+	}
+
 
 }
