@@ -28,15 +28,22 @@ if($_SESSION["rol"] != "secretaria"){
 			
 			<div class="box-header">
 				
-				<form>
+				<form method="post">
 					
 					<div class="col-md-6 col-xs-12">
-						<input type="text" class="input-lg" name="consultorioN" placeholder="Ingrese Nuevo Consultorio" required>
+						<input type="text" class="form-control" name="consultorioN" placeholder="Ingrese Nuevo Consultorio" required>
 					</div>
 
 					<button type="submit" class="btn btn-primary">Crear Consultorio</button>
 
 				</form>
+
+				<?php
+
+				$crearC = new ConsultorioC();
+				$crearC -> CrearConsultorioC()
+
+				?>
 
 			</div>
 
