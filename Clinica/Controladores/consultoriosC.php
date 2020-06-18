@@ -80,7 +80,7 @@ class ConsultoriosC{
 						<h2>Nombre: </h2>
 
 						<input type="text" class="form-control input-lg" name="consultorioE" value="'.$resultado["nombre"].'">
-						<input type="text" class="form-control input-lg" name="Cid" value="'.$resultado["id"].'">								
+						<input type="hidden" class="form-control input-lg" name="Cid" value="'.$resultado["id"].'">								
 
 						<br>
 
@@ -89,6 +89,36 @@ class ConsultoriosC{
 					</div>
 
 		';
+
+	}
+
+
+	//Actualizar Consultorio
+
+	public function ActualizarConsultorioC(){
+
+		if(isset($_POST["consultorioE"])){
+
+			$tablaBD = "consultorios";
+
+			$datosC = array("id" => $_POST["Cid"], "nombre" => $_POST["consultorioE"]);
+
+			$resultado = ConsultoriosM::ActualizarConsultorioM($tablaBD, $datosC);
+
+			if($resultado == true){
+
+				echo '<script>
+
+				window.location = "http://localhost/clinica/consultorios";
+				</script>';
+
+			}
+
+		}
+
+		
+
+		
 
 	}
 

@@ -34,7 +34,8 @@ if($_SESSION["rol"] != "secretaria"){
 
 					$editarC = new ConsultoriosC();
 					$editarC -> EditarConsultorio();
-
+					$editarC -> ActualizarConsultorioC();
+					
 					?>			
 
 				</form>

@@ -43,6 +43,7 @@ if($_SESSION["rol"] != "secretaria"){
 				$crearC = new ConsultoriosC();
 				$crearC -> CrearConsultorioC()
 
+
 				?>
 
 			</div>
