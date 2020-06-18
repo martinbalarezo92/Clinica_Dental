@@ -39,6 +39,30 @@ class ConsultoriosC{
 	}
 
 
+	//Borrar Consultorios
+	public function BorrarConsultorioC(){
+
+		if(substr($_GET["url"], 13)){
+
+			$tablaBD = "consultorios";
+
+			$id = substr($_GET["url"], 13);
+
+			$resultado = ConsultoriosM::BorrarConsultorioM($tablaBD, $id);
+
+			if($resultado == true){
+
+				echo '<script>
+
+				window.location = "http://localhost/clinica/consultorios";
+				</script>';
+
+			}
+
+		}
+
+	}
+
+
 }
 
-?>

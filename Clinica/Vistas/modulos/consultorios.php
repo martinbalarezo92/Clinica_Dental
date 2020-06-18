@@ -94,7 +94,7 @@ if($_SESSION["rol"] != "secretaria"){
 
 									</a>
 
-									<a href="http://localhost/clinica/">
+									<a href="http://localhost/clinica/consultorios/'.$value["id"].'">
 										
 										<button class="btn btn-danger"><i class="fa fa-times"></i> Borrar</button>
 
@@ -125,3 +125,12 @@ if($_SESSION["rol"] != "secretaria"){
 	</section>
 
 </div>
+
+
+<?php
+
+	$borrarC = new ConsultoriosC();
+	$borrarC -> BorrarConsultorioC();
+
+
+
