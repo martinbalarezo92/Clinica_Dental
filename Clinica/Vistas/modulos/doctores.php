@@ -175,9 +175,25 @@ if($_SESSION["rol"] != "secretaria"){
 								
 								<option>Seleccionar . . .</option>
 
-								<option value="a">a</option>
+								<?php
 
-								<option value="b">b</option>
+								$columna = null;
+
+								$valor = null;
+
+								$resultado = ConsultoriosC::VerConsultoriosC($columna, $valor);
+
+								foreach ($resultado as $key => $value) {
+									# code...
+									echo'
+
+										<option value='.$value["id"].'>'.$value["nombre"].'</option>
+
+									';
+
+								}
+
+								?>
 
 							</select>
 
@@ -195,7 +211,7 @@ if($_SESSION["rol"] != "secretaria"){
 							
 							<h2>Contraseña: </h2>
 
-							<input type="text" class="form-control input-lg"  name="contraseña" required>
+							<input type="text" class="form-control input-lg"  name="clave" required>
 
 						</div>
 
@@ -210,6 +226,13 @@ if($_SESSION["rol"] != "secretaria"){
 					<button type="submit" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 
 				</div>
+
+				<?php
+
+				$crear = new DoctoresC();
+				$crear -> CrearDoctorC();
+
+				?>
 
 			</form>
 
