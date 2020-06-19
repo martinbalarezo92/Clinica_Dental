@@ -27,13 +27,23 @@ class DoctoresC{
 
 	}
 
-
 //Mostrat Doctores
 static public function VerDoctoresC($columna, $valor){
 
 	$tablaBD = "doctores";
 
-	$resultado = doctoresM::VerDoctoresM($tablaBD, $columna, $valor);
+	$resultado = DoctoresM::VerDoctoresM($tablaBD, $columna, $valor);
+
+	return $resultado;
+
+}
+
+	//Editar Doctor
+static public function DoctorC($columna, $valor){
+
+	$tablaBD = "doctores";
+
+	$resultado = DoctoresM::DoctorM($tablaBD, $columna, $valor);
 
 	return $resultado;
 

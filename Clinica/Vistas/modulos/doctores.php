@@ -36,7 +36,7 @@ if($_SESSION["rol"] != "secretaria"){
 
 			<div class="box-body">
 				
-				<table class="table table-bordered table-hover table-striped">
+				<table class="table table-bordered table-hover table-striped DT">
 					
 					<thead>
 						
@@ -123,12 +123,10 @@ if($_SESSION["rol"] != "secretaria"){
 								
 								<div class="btn-group">
 									
-									<a href=http://localhost/clinica/E-C/'.$value["id"].'>
-										
-										<button class="btn btn-success"><i class="fa fa-pencil"></i> Editar</button>
+																	
+										<button class="btn btn-success EditarDoctor" Did="'.$value["id"].'" data-toggle="modal" data-target="#EditarDoctor"><i class="fa fa-pencil"></i> Editar</button>
 
-									</a>
-
+									
 									<a href="http://localhost/clinica/consultorios/'.$value["id"].'">
 										
 										<button class="btn btn-danger"><i class="fa fa-times"></i> Borrar</button>
@@ -161,7 +159,7 @@ if($_SESSION["rol"] != "secretaria"){
 
 </div>
 
-
+<!-- MODAL PARA CREAR DOCTOR -->
 <div class="modal fade" rol="dialog" id="CrearDoctor">
 	
 	<div class="modal-dialog">
@@ -283,6 +281,128 @@ if($_SESSION["rol"] != "secretaria"){
 
 </div>
 
+
+<!-- MODAL PARA EDITAR DOCTOR -->
+<div class="modal fade" rol="dialog" id="EditarDoctor">
+	
+	<div class="modal-dialog">
+		
+		<div class="modal-content">
+			
+			<form method="post" role="form">
+				
+				<div class="modal-body">
+					
+					<div class="box-body">
+						
+						<div class="form-group">
+							
+							<h2>Apellido:</h2>
+
+							<input type="text" class="form-control input-lg" id="apellidoE" name="apellido" required>
+
+							<input type="hidden" id="Did" name="Did">
+
+						</div>
+
+						<div class="form-group">
+							
+							<h2>Nombre: </h2>
+
+							<input type="text" class="form-control input-lg" id="nombreE" name="nombre" required>
+
+						</div>
+
+						<div class="form-group">
+							
+							<h2>Sexo:</h2>
+
+							<select class="form-control input-lg" name="sexoE" required>
+								
+								<option id="sexoE"></option>
+
+								<option value="Masculino">Masculino</option>
+
+								<option value="Femenino">Femenino</option>
+
+							</select>
+
+						</div>
+
+						<div class="form-group">
+							
+							<h2>Consultorio:</h2>
+
+							<select class="form-control input-lg" name="consultorioE" required>
+								
+								<option>Seleccionar . . .</option>
+
+								<?php
+
+								$columna = null;
+
+								$valor = null;
+
+								$resultado = ConsultoriosC::VerConsultoriosC($columna, $valor);
+
+								foreach ($resultado as $key => $value) {
+									# code...
+									echo'
+
+										<option value='.$value["id"].'>'.$value["nombre"].'</option>
+
+									';
+
+								}
+
+								?>
+
+							</select>
+
+						</div>							
+
+						<div class="form-group">
+							
+							<h2>Usuario: </h2>
+
+							<input type="text" class="form-control input-lg" id="usuarioE" name="usuario" required>
+
+						</div>
+
+						<div class="form-group">
+							
+							<h2>Contraseña: </h2>
+
+							<input type="text" class="form-control input-lg" id="claveE" name="clave" required>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="modal-footer">
+					
+					<button type="submit" class="btn btn-success">Guardar Cambios</button>
+
+					<button type="submit" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+
+				</div>
+
+				<?php
+
+				// $crear = new DoctoresC();
+				// $crear -> CrearDoctorC();
+
+				?>
+
+			</form>
+
+		</div>
+
+	</div>
+
+</div>
 
 
 <?php

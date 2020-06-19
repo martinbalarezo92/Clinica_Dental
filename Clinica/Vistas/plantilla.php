@@ -124,6 +124,9 @@ if(isset($_GET["url"])){
 <script src="http://localhost/clinica/Vistas/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="http://localhost/clinica/Vistas/dist/js/demo.js"></script>
+
+<script src="http://localhost/clinica/Vistas/js/doctores.js"></script>
+
 <script>
   $(document).ready(function () {
     $('.sidebar-menu').tree()
