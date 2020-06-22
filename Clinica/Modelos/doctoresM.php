@@ -98,4 +98,21 @@ class DoctoresM extends ConexionBD{
 	}
 
 
+	//Eliminar Doctor
+	static public function BorrarDoctorM($tablaBD, $id){
+
+		$pdo = ConexionBD::cBD()->prepare("DELETE FROM $tablaBD WHERE id = :id");
+
+		$pdo -> bindParam(":id", $id, pdo::PARAM_INT);
+
+		if($pdo -> execute()){
+			return true;
+		}
+
+		$pdo -> close();
+		$pdo = null;
+
+	}
+
+
 }

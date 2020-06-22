@@ -127,11 +127,11 @@ if($_SESSION["rol"] != "secretaria"){
 										<button class="btn btn-success EditarDoctor" Did="'.$value["id"].'" data-toggle="modal" data-target="#EditarDoctor"><i class="fa fa-pencil"></i> Editar</button>
 
 									
-									<a href="http://localhost/clinica/consultorios/'.$value["id"].'">
+									
 										
-										<button class="btn btn-danger"><i class="fa fa-times"></i> Borrar</button>
+										<button class="btn btn-danger EliminarDoctor" Did="'.$value["id"].'" imgD="'.$value["foto"].'"><i class="fa fa-times"></i> Borrar</button>
 
-									</a>
+								
 
 								</div>
 
@@ -377,8 +377,8 @@ if($_SESSION["rol"] != "secretaria"){
 
 <?php
 
-	//$borrarC = new ConsultoriosC();
-	//$borrarC -> BorrarConsultorioC();
+	$borrarD = new DoctoresC();
+	$borrarD -> BorrarDoctorC();
 
 
 

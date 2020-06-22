@@ -31,3 +31,14 @@ $(".DT").on("click",".EditarDoctor", function(){
 	})
 
 })
+
+
+
+$(".DT").on("click", ".EliminarDoctor", function(){
+
+	var Did = $(this).attr("Did");
+	var imgD = $(this).attr("imgD");
+
+	window.location = "index.php?url=doctores&Did="+Did+"&imgD="+imgD;
+
+})

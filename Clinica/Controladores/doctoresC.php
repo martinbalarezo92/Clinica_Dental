@@ -74,4 +74,38 @@ static public function DoctorC($columna, $valor){
 	}
 
 
+
+
+
+	//Borrar Doctor
+	public function BorrarDoctorC(){
+
+		if(isset($_GET["Did"])){
+
+			$tablaBD = "doctores";
+
+			$id = $_GET["Did"];
+
+			if($_GET["imgD"] != ""){
+
+				unlink($_GET["imgD"]);
+
+			}
+
+			$resultado = DoctoresM::BorrarDoctorM($tablaBD, $id);
+
+			if($resultado == true){
+
+				echo '<script>
+
+				window.location = "doctores";
+				</script>';
+
+			}
+
+		}
+
+	}
+
+
 }
