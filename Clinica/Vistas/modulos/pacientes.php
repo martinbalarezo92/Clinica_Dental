@@ -182,8 +182,8 @@ if($_SESSION["rol"] != "secretaria"){
 
 				<?php
 
-				//$crear = new DoctoresC();
-				//$crear -> CrearDoctorC();
+				$crear = new PacientesC();
+				$crear -> CrearPacienteC();
 
 				?>
 
