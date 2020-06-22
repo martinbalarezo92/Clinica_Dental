@@ -42,3 +42,30 @@ $(".DT").on("click", ".EliminarDoctor", function(){
 	window.location = "index.php?url=doctores&Did="+Did+"&imgD="+imgD;
 
 })
+
+$(".DT").DataTable({
+
+	"language":{
+
+
+		"sSearch": "Buscar:",
+		"sEmptyTable": "No hay datos",
+		"sZeroRecords": "No se encontraron resultados",
+		"sInfo" : "Mostrando registros del _START_ al _END_ de un total de _TOTAL_",
+		"sInfoEmpty": "Mostrando registros de 0 al 0 de un total de 0",
+		"sInfoFiltered": "(Filtando de un total de _MAX_ registros)",
+		"oPaginate":{
+
+			"sFirst": "Primero",
+			"sLast": "Último",
+			"sNext": "Siguiente",
+			"sPrevious": "Anterior"
+
+		},
+
+		"sLoadingRecords": "Cargando . . .",
+		"sLengthMenu": "Mostrar _MENU_ registros"
+
+	}
+
+})
