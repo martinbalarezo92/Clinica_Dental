@@ -49,5 +49,29 @@ static public function DoctorC($columna, $valor){
 
 }
 
+	//Actualizar Doctor
+	public function ActualizarDoctorC(){
+
+		if(isset($_POST["Did"])){
+
+			$tablaBD = "doctores";
+
+			$datosC = array("id"=>$_POST["Did"], "apellido"=>$_POST["apellidoE"], "nombre"=>$_POST["nombreE"], "sexo"=>$_POST["sexoE"], "usuario"=>$_POST["usuarioE"], "clave"=>$_POST["claveE"]);
+
+			$resultado = DoctoresM::ActualizarDoctorM($tablaBD, $datosC);
+
+			if($resultado == true){
+
+				echo '<script>
+
+				window.location = "doctores";
+				</script>';
+
+			}
+
+		}
+
+	}
+
 
 }

@@ -299,7 +299,7 @@ if($_SESSION["rol"] != "secretaria"){
 							
 							<h2>Apellido:</h2>
 
-							<input type="text" class="form-control input-lg" id="apellidoE" name="apellido" required>
+							<input type="text" class="form-control input-lg" id="apellidoE" name="apellidoE" required>
 
 							<input type="hidden" id="Did" name="Did">
 
@@ -307,11 +307,12 @@ if($_SESSION["rol"] != "secretaria"){
 
 						<div class="form-group">
 							
-							<h2>Nombre: </h2>
+							<h2>Nombre:</h2>
 
-							<input type="text" class="form-control input-lg" id="nombreE" name="nombre" required>
+							<input type="text" class="form-control input-lg" id="nombreE" name="nombreE" required>
 
 						</div>
+
 
 						<div class="form-group">
 							
@@ -329,43 +330,12 @@ if($_SESSION["rol"] != "secretaria"){
 
 						</div>
 
-						<div class="form-group">
-							
-							<h2>Consultorio:</h2>
-
-							<select class="form-control input-lg" name="consultorioE" required>
-								
-								<option>Seleccionar . . .</option>
-
-								<?php
-
-								$columna = null;
-
-								$valor = null;
-
-								$resultado = ConsultoriosC::VerConsultoriosC($columna, $valor);
-
-								foreach ($resultado as $key => $value) {
-									# code...
-									echo'
-
-										<option value='.$value["id"].'>'.$value["nombre"].'</option>
-
-									';
-
-								}
-
-								?>
-
-							</select>
-
-						</div>							
-
-						<div class="form-group">
+			
+							<div class="form-group">
 							
 							<h2>Usuario: </h2>
 
-							<input type="text" class="form-control input-lg" id="usuarioE" name="usuario" required>
+							<input type="text" class="form-control input-lg" id="usuarioE" name="usuarioE" required>
 
 						</div>
 
@@ -373,7 +343,7 @@ if($_SESSION["rol"] != "secretaria"){
 							
 							<h2>Contraseña: </h2>
 
-							<input type="text" class="form-control input-lg" id="claveE" name="clave" required>
+							<input type="text" class="form-control input-lg" id="claveE" name="claveE" required>
 
 						</div>
 
@@ -391,8 +361,8 @@ if($_SESSION["rol"] != "secretaria"){
 
 				<?php
 
-				// $crear = new DoctoresC();
-				// $crear -> CrearDoctorC();
+				 $actualizar = new DoctoresC();
+				 $actualizar -> ActualizarDoctorC();
 
 				?>
 
