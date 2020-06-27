@@ -142,6 +142,8 @@ if(isset($_GET["url"])){
 
 <script src="http://localhost/clinica/Vistas/js/doctores.js"></script>
 
+<script src="http://localhost/clinica/Vistas/js/pacientes.js"></script>
+
 <script>
   $(document).ready(function () {
     $('.sidebar-menu').tree()

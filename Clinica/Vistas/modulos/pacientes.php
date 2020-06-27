@@ -111,7 +111,7 @@ if($_SESSION["rol"] != "secretaria"){
 										
 										
 											
-											<button class="btn btn-danger EliminarDoctor" Did="" imgD=""><i class="fa fa-times"></i> Borrar</button>
+											<button class="btn btn-danger EliminarPaciente" Pid="'.$value["id"].'" imgP="'.$value["foto"].'"><i class="fa fa-times"></i> Borrar</button>
 
 									
 
@@ -312,8 +312,8 @@ if($_SESSION["rol"] != "secretaria"){
 
 <?php
 
-//	$borrarD = new DoctoresC();
-//	$borrarD -> BorrarDoctorC();
+	$borrarP = new PacientesC();
+	$borrarP -> BorrarPacienteC();
 
 
 

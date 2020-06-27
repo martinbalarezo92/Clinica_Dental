@@ -39,4 +39,36 @@ class PacientesC{
 
 	}
 
+	//Borrar paciente
+	public function BorrarPacienteC(){
+
+		if(isset($_GET["Pid"])){
+
+			$tablaBD = "pacientes";
+
+			$id = $_GET["Pid"];
+
+			if ($_GET["imgP"] != "") {
+				# code...
+				unlink($_GET["imgP"]);
+
+			}
+
+			$resultado = PacientesM::BorrarPacienteM($tablaBD, $id);
+
+			if($resultado == true){
+
+				echo'<script>
+
+				window.location = "pacientes";
+
+				</script>';
+
+			}
+
+		}
+
+	}
+
+
 }
