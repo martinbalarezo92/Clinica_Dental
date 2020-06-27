@@ -106,7 +106,7 @@ if($_SESSION["rol"] != "secretaria"){
 									<div class="btn-group">
 										
 																		
-											<button class="btn btn-success EditarDoctor" Did="" data-toggle="modal" data-target="#EditarPaciente"><i class="fa fa-pencil"></i>Editar</button>
+											<button class="btn btn-success EditarPaciente" Pid="'.$value["id"].'" imgP="'.$value["foto"].'" data-toggle="modal" data-target="#EditarPaciente"><i class="fa fa-pencil"></i>Editar</button>
 
 										
 										
