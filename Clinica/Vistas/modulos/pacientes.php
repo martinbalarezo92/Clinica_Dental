@@ -187,7 +187,7 @@ if($_SESSION["rol"] != "secretaria"){
 							
 							<h2>Usuario: </h2>
 
-							<input type="text" class="form-control input-lg"  name="usuario" required>
+							<input type="text" class="form-control input-lg" id="usuario" name="usuario" required>
 
 						</div>
 
@@ -235,7 +235,7 @@ if($_SESSION["rol"] != "secretaria"){
 		<div class="modal-content">
 			
 			<form method="post" role="form">
-				 
+				
 				<div class="modal-body">
 					
 					<div class="box-body">
@@ -257,18 +257,18 @@ if($_SESSION["rol"] != "secretaria"){
 							<input type="text" class="form-control input-lg" id="nombreE" name="nombreE" required>
 
 						</div>
-						
+
 						<div class="form-group">
 							
-							<h2>Documento: </h2>
+							<h2>Documento:</h2>
 
 							<input type="text" class="form-control input-lg" id="documentoE" name="documentoE" required>
 
-						</div>	
+						</div>
 
 						<div class="form-group">
 							
-							<h2>Usuario: </h2>
+							<h2>Usuario:</h2>
 
 							<input type="text" class="form-control input-lg" id="usuarioE" name="usuarioE" required>
 
@@ -276,7 +276,7 @@ if($_SESSION["rol"] != "secretaria"){
 
 						<div class="form-group">
 							
-							<h2>Contraseña: </h2>
+							<h2>Contraseña:</h2>
 
 							<input type="text" class="form-control input-lg" id="claveE" name="claveE" required>
 
@@ -286,18 +286,19 @@ if($_SESSION["rol"] != "secretaria"){
 
 				</div>
 
+
 				<div class="modal-footer">
 					
 					<button type="submit" class="btn btn-success">Guardar Cambios</button>
 
-					<button type="submit" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 
 				</div>
 
 				<?php
 
-				 $actualizar = new PacientesC();
-				 $actualizar -> ActualizarPacienteC();
+				$actualizar = new PacientesC();
+				$actualizar -> ActualizarPacienteC();
 
 				?>
 
