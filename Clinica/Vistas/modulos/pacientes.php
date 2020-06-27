@@ -296,8 +296,8 @@ if($_SESSION["rol"] != "secretaria"){
 
 				<?php
 
-				// $actualizar = new DoctoresC();
-				// $actualizar -> ActualizarDoctorC();
+				 $actualizar = new PacientesC();
+				 $actualizar -> ActualizarPacienteC();
 
 				?>
 
