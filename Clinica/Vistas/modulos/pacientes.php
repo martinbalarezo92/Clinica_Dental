@@ -62,22 +62,44 @@ if($_SESSION["rol"] != "secretaria"){
 					<tbody>
 
 
-						
-						
+						<?php
+
+						$columna = null;
+						$valor = null;
+
+						$resultado = PacientesC::VerPacientesC($columna, $valor);
+
+						foreach ($resultado as $key => $value) {
+
+							echo'
 
 							<tr>
 							
-							<td>1</td>
+							<td>'.($key+1).'</td>
 
-							<td>Balarezo</td>
-							<td>Martin</td>
-							<td>1718139205</td>								
-							<td> <img src="Vistas/img/defecto.png" width="40px"> </td>
+							<td>'.$value["apellido"].'</td>
+							<td>'.$value["nombre"].'</td>
+							<td>'.$value["documento"].'</td>';
+
+							if($value["foto"] == ""){
+
+								echo'	<td> <img src="Vistas/img/defecto.png" width="40px"> </td>';
+
+							}else{
+
+								echo'	<td> <img src="'.$value["foto"].'" width="40px"> </td>';
+
+							}
+
+							
+
+
+							echo'
 							
 			
-								<td>tincho</td>
+								<td>'.$value["usuario"].'</td>
 
-								<td>123</td>
+								<td>'.$value["clave"].'</td>
 
 								<td>
 									
@@ -98,6 +120,15 @@ if($_SESSION["rol"] != "secretaria"){
 								</td>
 
 							</tr>
+
+							';
+							
+						}
+
+						?>
+						
+
+							
 
 												
 

@@ -26,4 +26,17 @@ class PacientesC{
 		}
 
 	}
+
+	//Ver Paceitnes
+
+	static public function VerPacientesC($columna, $valor){
+
+		$tablaBD = "pacientes";
+
+		$resultado = PacientesM::VerPacientesM($tablaBD, $columna, $valor);
+
+		return $resultado;
+
+	}
+
 }
