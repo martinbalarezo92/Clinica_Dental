@@ -43,7 +43,7 @@ $(".DT").on("click", ".EditarPaciente", function(){
 
 $("#usuario").change(function(){
 
-	$(".alert").remove();
+	$(".alert alert-danger ").remove();
 
 	var usuario = $(this).val();
 	var datos = new FormData();
@@ -78,7 +78,7 @@ $("#usuario").change(function(){
 
 $("#usuarioE").change(function(){
 
-	$(".alert").remove();
+	$(".alert alert-danger").remove();
 
 	var usuario = $(this).val();
 	var datos = new FormData();
