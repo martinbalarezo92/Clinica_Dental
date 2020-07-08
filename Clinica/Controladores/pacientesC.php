@@ -133,4 +133,50 @@ class PacientesC{
 
 	}
 
+	//Ver perfil del Pacietne
+	public function VerPerfilPacienteC(){
+
+		$tablaBD = "pacientes";
+
+		$id = $_SESSION["id"];
+
+		$resultado = PacientesM::VerPerfilPacienteM($tablaBD, $id);
+
+		echo 
+			'<tr>
+				
+				<td>'.$resultado["usuario"].'</td>
+				<td>'.$resultado["clave"].'</td>
+				<td>'.$resultado["nombre"].'</td>
+				<td>'.$resultado["apellido"].'</td>';
+
+				if ($resultado["foto"] == "") {
+					# code...
+					echo '<td><img src=Vistas/img/defecto.png width="40px"></td>';
+
+				}else{
+
+					echo '<td><img src='.$resultado["foto"].' width="40px"></td>';
+
+				}
+
+		
+		echo'
+				<td>'.$resultado["documento"].'</td>
+				<td>
+					
+					<a href="#">
+						
+						<button class="btn btn-success"><i class="fa fa-pencil"></i></button>
+
+					</a>
+
+				</td>
+
+			</tr>
+			';
+
+
+	}
+
 }

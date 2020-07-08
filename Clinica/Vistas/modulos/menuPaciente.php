@@ -11,24 +11,18 @@
           </a>
         </li>
 
-        <li>
-          <a href="http://localhost/clinica/doctores">
-            <i class="fa fa-user-md"></i>
-            <span>Doctores</span>
-          </a>
-        </li>
 
         <li>
-          <a href="http://localhost/clinica/consultorios">
+          <a href="http://localhost/clinica/Ver-consultorios">
             <i class="fa fa-medkit"></i>
             <span>Consultorio</span>
           </a>
         </li>
 
         <li>
-          <a href="http://localhost/clinica/pacientes">
-            <i class="fa fa-users"></i>
-            <span>Pacientes</span>
+          <a href="http://localhost/clinica/historial">
+            <i class="fa fa-calendar-check-o"></i>
+            <span>Historial</span>
           </a>
         </li>
 

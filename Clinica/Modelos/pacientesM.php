@@ -114,4 +114,23 @@ class PacientesM extends ConexionBD{
 
 	}
 
+
+	// ver perfil del pacietnes
+
+	static public function VerPerfilPacienteM($tablaBD, $id){
+
+		$pdo = ConexionBD::cBD()->prepare("SELECT usuario, clave, apellido, nombre, documento, foto, rol , id FROM $tablaBD WHERE id = :id");
+
+		$pdo -> bindParam(":id", $id, PDO::PARAM_INT);
+
+		$pdo -> execute();
+
+		return $pdo -> fetch();
+
+		$pdo -> close();
+		$pdo = null;
+
+	}
+
+
 }
