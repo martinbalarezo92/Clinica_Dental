@@ -165,7 +165,7 @@ class PacientesC{
 				<td>'.$resultado["documento"].'</td>
 				<td>
 					
-					<a href="#">
+					<a href="http://localhost/clinica/perfil-P/'.$resultado["id"].'">
 						
 						<button class="btn btn-success"><i class="fa fa-pencil"></i></button>
 
@@ -179,4 +179,83 @@ class PacientesC{
 
 	}
 
+	//Editar perfil paciente
+
+	public function EditarPerfilPaciente(){
+
+		$tablaBD = "pacientes";
+
+		$id = $_SESSION["id"];
+
+		$resultado = PacientesM::VerPerfilPacienteM($tablaBD, $id);
+
+		echo'
+
+		<form method="post" enctype="multipart/form-data">
+					
+					<div class="row">
+						
+						<div class="col-md-6 col-xs-12">
+							
+							<h2>Nombre: </h2>
+							<input type="text" class="input-lg" name="nombrePerfil" value="'.$resultado["nombre"].'">
+							<input type="hidden" class="input-lg" name="Pid" value="'.$resultado["id"].'">
+
+							<h2>Apellido: </h2>
+							<input type="text" class="input-lg" name="apellidoPerfil" value="'.$resultado["apellido"].'">
+
+							<h2>Usuario: </h2>
+							<input type="text" class="input-lg" name="usuarioPerfil" value="'.$resultado["usuario"].'">
+
+							<h2>Clave: </h2>
+							<input type="text" class="input-lg" name="clavePerfil" value="'.$resultado["clave"].'">
+
+							<h2>Documento: </h2>
+							<input type="text" class="input-lg" name="documentoPerfil" value="'.$resultado["documento"].'">
+
+						</div>
+
+						<div class="col-md-6 col-xs-12">
+							
+							<input type="file" name="imgPerfil">
+							<br>';
+
+							if($resultado["foto"] != ""){
+
+								echo'
+
+								<img src="http://localhost/clinica/'.$resultado["foto"].'" width="200px" class="responsive">
+
+								';
+
+
+							}else{
+
+								echo'
+
+								<img src="http://localhost/clinica/Vistas/img/defecto.png" width="200px" class="responsive">
+
+								';
+
+							}
+
+
+							
+							echo' 
+
+							<input type="hidden" name="imgActual" value="'.$resultado["foto"].'">
+
+							<button type="submit" class="btn btn-success">Guardar Cambios</button>
+
+							<br><br>
+
+						</div>
+
+					</div>
+
+				</form>
+
+		';
+
+	}
 }

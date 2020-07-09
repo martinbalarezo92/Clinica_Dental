@@ -70,7 +70,7 @@ if(isset($_GET["url"])){
   
   $url = explode("/", $_GET["url"]);
 
-  if ($url[0] == "inicio" || $url[0] == "salir" || $url[0] == "perfil-secretaria" || $url[0] == "perfil-S" || $url[0] == "consultorios" || $url[0] == "E-C" || $url[0] == "doctores" || $url[0] == "pacientes" || $url[0] == "perfil-Paciente") {
+  if ($url[0] == "inicio" || $url[0] == "salir" || $url[0] == "perfil-secretaria" || $url[0] == "perfil-S" || $url[0] == "consultorios" || $url[0] == "E-C" || $url[0] == "doctores" || $url[0] == "pacientes" || $url[0] == "perfil-Paciente" || $url[0] == "perfil-P") {
     # code...
     include "modulos/".$url[0].".php";
  
