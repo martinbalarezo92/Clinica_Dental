@@ -258,4 +258,68 @@ class PacientesC{
 		';
 
 	}
+
+	//Actualizar Pefil del paceitne
+
+	public function ActualizarPerfilPacienteC(){
+
+		if(isset($_POST["Pid"])){
+
+			$rutaImg = $_POST["imgActual"];
+
+			if(isset($_FILES["imgPerfil"]["tmp_name"]) && !empty($_FILES["imgPerfil"]["tmp_name"])){
+
+				if(!empty($_POST["imgActual"])){
+
+					unlink($_POST["imgActual"]);
+
+				}
+
+			if ($_FILES["imgPerfil"]["type"] == "image/png") {
+				# code...
+					$nombre = mt_rand(100,999);
+
+					$rutaImg = "Vistas/img/Pacientes/Paciente".$nombre.".png";
+
+					$foto = imagecreatefrompng($_FILES["imgPerfil"]["tmp_name"]);
+
+					imagepng($foto, $rutaImg);
+
+			}
+
+			if($_FILES["imgPerfil"]["type"] == "image/jpeg"){
+
+					$nombre = mt_rand(100,999);
+
+					$rutaImg = "Vistas/img/Pacientes/Paciente".$nombre.".jpg";
+
+					$foto = imagecreatefromjpeg($_FILES["imgPerfil"]["tmp_name"]);
+
+					imagejpeg($foto, $rutaImg);
+
+				}
+
+
+			}
+
+			$tablaBD = "pacientes";
+
+			$datosC = array("id"=>$_POST["Pid"], "nombre"=>$_POST["nombrePerfil"], "apellido"=>$_POST["apellidoPerfil"], "usuario"=>$_POST["usuarioPerfil"], "clave"=>$_POST["clavePerfil"], "documento"=>$_POST["documentoPerfil"], "foto"=>$rutaImg);
+
+			$resultado = PacientesM::ActualizarPerfilPacienteM($tablaBD, $datosC);
+
+			if($resultado == true){
+
+				echo'
+				<script>
+					window.location = "http://localhost/clinica/perfil-P/'.$_SESSION["id"].'";
+				</script>
+				';
+
+			}
+
+		}
+
+
+	}
 }
