@@ -30,6 +30,12 @@ session_start();
 
   <link rel="stylesheet" href="http://localhost/clinica/Vistas/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
 
+
+  <!--Full Calendar -->
+
+  <link rel="stylesheet" href="http://localhost/clinica/Vistas/bower_components/fullcalendar/dist/fullcalendar.min.css">
+  <link rel="stylesheet" href="http://localhost/clinica/Vistas/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
+
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -155,10 +161,34 @@ if(isset($_GET["url"])){
 
 <script src="http://localhost/clinica/Vistas/js/pacientes.js"></script>
 
+<!-- fullCalendar -->
+<script src="http://localhost/clinica/Vistas/bower_components/moment/moment.js"></script>
+<script src="http://localhost/clinica/Vistas/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+<script src="http://localhost/clinica/Vistas/bower_components/fullcalendar/dist/locale/es.js"></script>
+
+
+
+
 <script>
   $(document).ready(function () {
     $('.sidebar-menu').tree()
   })
+
+  var date = new Date()
+  var d    = date.getDate(),
+      m    = date.getMonth(),
+      y    = date.getFullYear()
+
+  $('#calendar').fullCalendar({
+
+    hiddenDays: [0,6],
+    defaultView: 'agendaWeek'
+
+  })
 </script>
+
+
+
+
 </body>
 </html>

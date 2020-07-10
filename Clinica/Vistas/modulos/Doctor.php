@@ -62,7 +62,7 @@ if($_SESSION["rol"] != "Paciente"){
 
 			<div class="box-body">
 				
-				
+				<div id="calendar"></div>
 
 			</div>
 
