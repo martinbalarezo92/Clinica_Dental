@@ -182,7 +182,14 @@ if(isset($_GET["url"])){
   $('#calendar').fullCalendar({
 
     hiddenDays: [0,6],
-    defaultView: 'agendaWeek'
+    defaultView: 'agendaWeek',
+
+    dayClick:function(date, jsEvent, view){
+
+      $('#CitaModal').modal();
+
+    }
+
 
   })
 </script>
