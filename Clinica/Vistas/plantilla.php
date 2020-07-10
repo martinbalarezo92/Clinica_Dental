@@ -181,7 +181,8 @@ if(isset($_GET["url"])){
 
   $('#calendar').fullCalendar({
 
-    hiddenDays: [0,6],
+    hiddenDays: [0,6], 
+
     defaultView: 'agendaWeek',
 
     dayClick:function(date, jsEvent, view){

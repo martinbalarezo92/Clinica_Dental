@@ -89,7 +89,6 @@ if($_SESSION["rol"] != "Paciente"){
 						<?php
 
 						$columna = "id";
-
 						$valor =  substr($_GET["url"], 7);
 
 						$resultado = DoctoresC::DoctorC($columna, $valor);
@@ -98,11 +97,10 @@ if($_SESSION["rol"] != "Paciente"){
 
 						<div class="form-group">
 						
-							<h2>Nombre del Paciente</h2>	
+							<h2>Nombre del Paciente:</h2>
 							<input type="text" class="form-control input-lg" name="nyaC" value="'.$_SESSION["nombre"].' '.$_SESSION["apellido"].'" readonly>
 
 							<input type="hidden" name="Did" value="'.$resultado["id"].'">
-
 							<input type="hidden" name="Pid" value="'.$_SESSION["id"].'">
 
 
@@ -136,26 +134,6 @@ if($_SESSION["rol"] != "Paciente"){
 
 						?>
 						
-						<div class="form-group">
-						
-							<h2>Nombre del Paciente</h2>	
-							<input type="text" class="form-control input-lg" name="nyaC" value="" readonly>
-
-							<input type="hidden" name="Did" value="">
-
-							<input type="hidden" name="Pid" value="">
-
-
-						</div>
-
-						<div class="form-group">
-						
-							<h2>Documento del Paciente</h2>	
-							<input type="text" class="form-control input-lg" name="documentoC" value="" readonly>
-
-
-						</div>
-
 						
 
 						<div class="form-group">
@@ -169,7 +147,7 @@ if($_SESSION["rol"] != "Paciente"){
 						<div class="form-group">
 						
 							<h2>Hora</h2>	
-							<input type="text" class="form-control input-lg" id="horaC" name="horaC" value="" readonly>
+							<input type="text" class="form-control input-lg" id="horaC"  value="" readonly>
 
 
 						</div>
@@ -196,7 +174,16 @@ if($_SESSION["rol"] != "Paciente"){
 
 				</div>
 
+				<?php
+
+			$enviarC = new CitasC();
+			$enviarC -> EnviarCitaC();
+
+			?>
+
 			</form>
+
+			
 
 		</div>
 
