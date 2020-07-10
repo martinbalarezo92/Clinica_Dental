@@ -18,9 +18,39 @@ if($_SESSION["rol"] != "Paciente"){
 	
 	<section class="content-header">
 		
-		<h1>Doctor: Leiser aaa</h1>
+		<?php
+
+		$columna = "id";
+		$valor = substr($_GET["url"], 7);
+
+		$resultado = DoctoresC::DoctorC($columna, $valor);
+
+		if ($resultado["sexo"] == "Femenino") {
+			
+			echo'<h1>Doctora: '.$resultado["apellido"].' '.$resultado["nombre"].'</h1>';
+
+		}else{
+
+			echo'<h1>Doctor: '.$resultado["apellido"].' '.$resultado["nombre"].'</h1>';
+
+		}
+
+		$columna = "id";
+		$valor = $resultado["id_consultorio"];
+
+		$consultorio = ConsultoriosC::VerConsultoriosC($columna, $valor);
+
+		echo'
+
 		<br>
-		<h1>Consultorio de: Cardiologia</h1>
+		<h1>Consultorio de '.$consultorio["nombre"].'</h1>
+
+		';
+
+		?>
+
+
+		
 
 	</section>
 
