@@ -80,8 +80,9 @@ if(isset($_GET["url"])){
   
   $url = explode("/", $_GET["url"]);
 
-  if ($url[0] == "inicio" || $url[0] == "salir" || $url[0] == "perfil-secretaria" || $url[0] == "perfil-S" || $url[0] == "consultorios" || $url[0] == "E-C" || $url[0] == "doctores" || $url[0] == "pacientes" || $url[0] == "perfil-Paciente" || $url[0] == "perfil-P" || $url[0] == "Ver-consultorios" || $url[0] == "Doctor" || $url[0] == "historial" || $url[0] == "perfil-Doctor" || $url[0] == "perfil-D")  {
-    # code...
+  if ($url[0] == "inicio" || $url[0] == "salir" || $url[0] == "perfil-secretaria" || $url[0] == "perfil-S" || $url[0] == "consultorios" || $url[0] == "E-C" || $url[0] == "doctores" || $url[0] == "pacientes" || $url[0] == "perfil-Paciente" || $url[0] == "perfil-P" || $url[0] == "Ver-consultorios" || $url[0] == "Doctor" || $url[0] == "historial" || $url[0] == "perfil-Doctor" || $url[0] == "perfil-D" || $url[0] == "Citas") 
+  {
+
     include "modulos/".$url[0].".php";
  
    } 
@@ -217,11 +218,57 @@ if(isset($_GET["url"])){
 
                 }
 
+                else if($value["id_doctor"] == substr($_GET["url"], 6)){
+
+                  echo'
+
+                  {
+
+                    id: '.$value["id"].',
+                    title: "'.$value["nyaP"].'",
+                    start: "'.$value["inicio"].'",
+                    end: "'.$value["fin"].'"
+
+
+                  },';
+
+                }
+
               }      
 
       ?>
 
     ],
+
+    <?php 
+
+    if ($_SESSION["rol"] == "Paciente") {
+      # code...
+      $columna = "id";
+
+      $valor = substr($_GET["url"], 7);
+
+      $resultado = DoctoresC::DoctorC($columna, $valor);
+
+      echo'scrollTime: "'.$resultado["horarioE"].'",
+          minTime: "'.$resultado["horarioE"].'",
+          maxTime: "'.$resultado["horarioS"].'",';
+
+    }else if ($_SESSION["rol"] == "Doctor") {
+      # code...
+      $columna = "id";
+
+      $valor = substr($_GET["url"], 6);
+
+      $resultado = DoctoresC::DoctorC($columna, $valor);
+
+      echo'scrollTime: "'.$resultado["horarioE"].'",
+          minTime: "'.$resultado["horarioE"].'",
+          maxTime: "'.$resultado["horarioS"].'",';
+
+    }
+
+     ?>
 
     dayClick:function(date, jsEvent, view){
 
