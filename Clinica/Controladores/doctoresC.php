@@ -147,4 +147,66 @@ public function IngresarDoctorC(){
 
 }
 
+// Ver perfil doctor
+	public function VerPerfilDoctorC(){
+
+		$tablaBD = "doctores";
+
+		$id = $_SESSION["id"];
+
+		$resultado = DoctoresM::VerPerfilDoctorM($tablaBD, $id);
+
+		echo'
+
+		<tr>
+				
+				<td>'.$resultado["usuario"].'</td>
+				<td>'.$resultado["clave"].'</td>
+				<td>'.$resultado["nombre"].'</td>
+				<td>'.$resultado["apellido"].'</td>';
+
+				if ($resultado["foto"] == "") {
+					# code...
+					echo '<td><img src=Vistas/img/defecto.png width="40px"></td>';
+
+				}else{
+
+					echo '<td><img src='.$resultado["foto"].' width="40px"></td>';
+
+				}
+
+		 		$columna = "id";
+
+		 		$valor = $resultado["id_consultorio"];
+
+		 		$consultorio = ConsultoriosC::VerConsultoriosC($columna, $valor);
+
+
+				echo'<td>'.$consultorio["nombre"].'</td>';
+
+				echo'
+				<td>
+
+					Desde: '.$resultado["horarioE"].'
+					<br>
+					Hasta: '.$resultado["horarioS"].'
+
+				</td>
+
+				<td>
+					
+					<a href="http://localhost/clinica/perfil-D/'.$resultado["id"].'">
+						
+						<button class="btn btn-success"><i class="fa fa-pencil"></i></button>
+
+					</a>
+
+				</td>
+
+			</tr>
+
+		';
+
+	}
+
 }
