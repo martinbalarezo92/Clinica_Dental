@@ -209,7 +209,7 @@ public function IngresarDoctorC(){
 
 	}
 
-	//Editar 
+	//Editar Perfil Doctor
 
 	public function EditarPerfilDoctor(){
 
@@ -285,10 +285,22 @@ public function IngresarDoctorC(){
 							
 							<br><br>
 							<input type="file" name="imgPerfil">
-							<br>
-							<img src="http://localhost/clinica/Vistas/img/defecto.png" class="img-responsive" width="200px">
+							<br>';
+							
+							if($resultado["foto"] == ""){
 
-							<input type="hidden" name="imgActual" value="">
+								echo '<img src="http://localhost/clinica/Vistas/img/defecto.png" class="img-responsive" width="200px">';
+
+							}else{
+
+								echo '<img src="http://localhost/clinica/'.$resultado["foto"].'" class="img-responsive" width="200px">';
+
+								
+							}
+							
+
+							echo '<input type="hidden" name="imgActual" value="'.$resultado["foto"].'">
+
 							<br><br>
 
 							<button type="submit" class="btn btn-success">Guardar Cambios</button>
@@ -300,6 +312,66 @@ public function IngresarDoctorC(){
 				</form>	
 
 		';
+
+	}
+
+	//actualizar perfil Doctor
+
+	public function ActualizarPerfilDoctorC(){
+
+		if(isset($_POST["Did"])){
+
+			$rutaImg = $_POST["imgActual"];
+
+			if(isset($_FILES["imgPerfil"]["tmp_name"]) && !empty($_FILES["imgPerfil"]["tmp_name"])){
+
+				if(!empty($_POST["imgActual"])){
+
+					unlink($_POST["imgActual"]);
+
+				}
+
+				if($_FILES["imgPerfil"]["type"] == "image/png"){
+
+					$nombre = mt_rand(100,999);
+
+					$rutaImg = "Vistas/img/Doctores/Doc-".$nombre.".png";
+
+					$foto = imagecreatefrompng($_FILES["imgPerfil"]["tmp_name"]);
+
+					imagepng($foto, $rutaImg);
+
+				}
+
+				if($_FILES["imgPerfil"]["type"] == "image/jpeg"){
+
+					$nombre = mt_rand(100,999);
+
+					$rutaImg = "Vistas/img/Doctores/Doc-".$nombre.".jpg";
+
+					$foto = imagecreatefromjpeg($_FILES["imgPerfil"]["tmp_name"]);
+
+					imagejpeg($foto, $rutaImg);
+
+				}
+
+
+			}
+
+			$tablaBD = "doctores";
+
+			$datosC = array("id"=>$_POST["Did"], "nombre"=>$_POST["nombrePerfil"], "apellido"=>$_POST["apellidoPerfil"], "usuario"=>$_POST["usuarioPerfil"], "clave"=>$_POST["clavePerfil"], "consultorio"=>$_POST["consultorioPerfil"], "horarioE"=>$_POST["hePerfil"], "horarioS"=>$_POST["hsPerfil"], "foto"=>$rutaImg);
+
+			$resultado = DoctoresM::ActualizarPerfilDoctorM($tablaBD, $datosC);
+
+			if($resultado == true){
+
+				echo'<script>
+					window.location = "http://localhost/clinica/perfil-D/'.$resultado["id"].'";
+				</script>';
+
+			}
+		}
 
 	}
 }
