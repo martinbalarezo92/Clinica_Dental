@@ -165,4 +165,70 @@
 
 	}
 
+
+ //Actualizar perfil Administrador
+	public function ActualizarPerfilAdminC(){
+
+		if(isset($_POST["Aid"])){
+
+			$rutaImg = $_POST["imgActual"];
+
+			if(isset($_FILES["imgP"]["tmp_name"]) && !empty($_FILES["imgP"]["tmp_name"])){
+
+				if(!empty($_POST["imgActual"])){
+
+					unlink($_POST["imgActual"]);
+
+				}
+
+
+				if($_FILES["imgP"]["type"] == "image/jpeg"){
+
+					$nombre = mt_rand(10,999);
+
+					$rutaImg = "Vistas/img/Usuarios/A-".$nombre.".jpg";
+
+					$foto = imagecreatefromjpeg($_FILES["imgP"]["tmp_name"]);
+
+					imagejpeg($foto, $rutaImg);
+
+				}
+
+				if($_FILES["imgP"]["type"] == "image/png"){
+
+					$nombre = mt_rand(10,999);
+
+					$rutaImg = "Vistas/img/Usuarios/A-".$nombre.".png";
+
+					$foto = imagecreatefrompng($_FILES["imgP"]["tmp_name"]);
+
+					imagepng($foto, $rutaImg);
+
+				}
+
+			}
+
+
+			$tablaBD = "administradores";
+
+			$datosC = array("id"=>$_POST["Aid"], "usuario"=>$_POST["usuarioP"], "clave"=>$_POST["claveP"], "nombre"=>$_POST["nombreP"], "apellido"=>$_POST["apellidoP"], "foto"=>$rutaImg);
+
+			$resultado = AdminM::ActualizarPerfilAdminM($tablaBD, $datosC);
+
+			if($resultado == true){
+
+				echo '<script>
+
+				window.location = "http://localhost/clinica/perfil-A/'.$_SESSION["id"].'";
+				</script>';
+
+			}
+
+		}
+
+
+
+	}
+
+	
 }
