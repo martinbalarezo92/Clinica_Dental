@@ -20,6 +20,23 @@ class AdminM extends ConexionBD{
 		$pdo = null;
 
 		}
+
+
+	//Ver perfil Admin
+		static public function VerPerfilAdminM($tablaBD, $id){
+
+		$pdo = ConexionBD::cBD() -> prepare("SELECT usuario, clave, nombre, apellido, foto, id FROM $tablaBD WHERE id = :id");
+
+		$pdo -> bindParam(":id", $id, PDO::PARAM_INT); 
+
+		$pdo -> execute();
+
+		return $pdo -> fetch();
+
+		$pdo -> close();
+		$pdo = null;
+
+		}
 	}
 	
- ?>
+ 
