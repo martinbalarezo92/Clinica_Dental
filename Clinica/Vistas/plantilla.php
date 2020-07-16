@@ -70,6 +70,10 @@ if($_SESSION["rol"] == "secretaria"){
 
   include "modulos/menuDoctor.php";
   
+} else if ($_SESSION["rol"] == "Administrador") {
+
+  include "modulos/menuAdmin.php";
+  
 }
 
 
@@ -115,6 +119,10 @@ if(isset($_GET["url"])){
   }else if($_GET["url"] == "ingreso-Doctor"){
 
       include "modulos/ingreso-Doctor.php";
+
+  }else if($_GET["url"] == "ingreso-Administrador"){
+
+      include "modulos/ingreso-Administrador.php";
 
   }
 
