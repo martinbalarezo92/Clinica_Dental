@@ -227,7 +227,7 @@ class SecretariasC{
 
 // mostrar secretarias
 
-	static public function VerSecretariasC(){
+	public function VerSecretariasC(){
 
 	$tablaBD = "secretarias";
 
@@ -236,5 +236,31 @@ class SecretariasC{
 	return $resultado;
 
 }
+
+// crear secretaria
+	public function CrearSecretariaC(){
+
+		if(isset($_POST["rolS"])){
+
+			$tablaBD = "secretarias";
+
+			$datosC = array("nombre"=>$_POST["nombre"], "apellido"=>$_POST["apellido"], "usuario"=>$_POST["usuario"], "clave"=>$_POST["clave"], "rol"=>$_POST["rolS"], );
+
+			$resultado = SecretariasM::CrearSecretariaM($tablaBD, $datosC);
+
+			if($resultado == true){
+				echo '
+				<script>
+				window.location = "secretarias";
+				</script>
+
+				';
+
+
+			}
+
+		}
+
+	}
 
 }
