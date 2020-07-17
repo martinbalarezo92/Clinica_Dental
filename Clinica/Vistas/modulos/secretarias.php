@@ -105,7 +105,7 @@ if($_SESSION["rol"] != "Administrador"){
 								<div class="btn-group">
 									
 					
-									<button class="btn btn-danger EliminarDoctor" Sid="'.$value["id"].'" imgS="'.$value["foto"].'"><i class="fa fa-times"></i> Borrar</button>
+									<button class="btn btn-danger EliminarSecretaria" Sid="'.$value["id"].'" imgS="'.$value["foto"].'"><i class="fa fa-times"></i> Borrar</button>
 
 								
 
@@ -223,8 +223,8 @@ if($_SESSION["rol"] != "Administrador"){
 
 <?php
 
-	$borrarD = new DoctoresC();
-	$borrarD -> BorrarDoctorC();
+	$borrarD = new SecretariasC();
+	$borrarD -> BorrarSecretariaC();
 
 
 

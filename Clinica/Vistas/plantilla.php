@@ -178,6 +178,8 @@ if(isset($_GET["url"])){
 
 <script src="http://localhost/clinica/Vistas/js/pacientes.js"></script>
 
+<script src="http://localhost/clinica/Vistas/js/secretarias.js"></script>
+
 <!-- fullCalendar -->
 <script src="http://localhost/clinica/Vistas/bower_components/moment/moment.js"></script>
 <script src="http://localhost/clinica/Vistas/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
