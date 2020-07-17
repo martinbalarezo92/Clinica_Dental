@@ -224,4 +224,17 @@ class SecretariasC{
 
 	}
 
+
+// mostrar secretarias
+
+	static public function VerSecretariasC(){
+
+	$tablaBD = "secretarias";
+
+	$resultado = SecretariasM::VerSecretariasM($tablaBD);
+
+	return $resultado;
+
+}
+
 }
