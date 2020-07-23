@@ -97,7 +97,7 @@
 		';
 
 	}
-
+	//Editar perfil
 	public function EditarPerfilAdminC(){
 
 		$tablaBD = "administradores";

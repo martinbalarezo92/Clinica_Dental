@@ -12,6 +12,16 @@ session_start();
   <title>Clínica Médica | Blank Page</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+  <?php 
+
+    $favicon = new InicioC();
+    $favicon -> MostrarFavicon();
+
+   ?>
+
+
+
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="http://localhost/clinica/Vistas/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
@@ -59,7 +69,7 @@ echo '<div class="wrapper">';
 
 include "modulos/cabecera.php";
 
-if($_SESSION["rol"] == "secretaria"){
+if($_SESSION["rol"] == "Secretaria"){
 
   include "modulos/menuSecretaria.php";
 
@@ -85,7 +95,7 @@ if(isset($_GET["url"])){
   
   $url = explode("/", $_GET["url"]);
 
-  if ($url[0] == "inicio" || $url[0] == "salir" || $url[0] == "perfil-secretaria" || $url[0] == "perfil-S" || $url[0] == "consultorios" || $url[0] == "E-C" || $url[0] == "doctores" || $url[0] == "pacientes" || $url[0] == "perfil-Paciente" || $url[0] == "perfil-P" || $url[0] == "Ver-consultorios" || $url[0] == "Doctor" || $url[0] == "historial" || $url[0] == "perfil-Doctor" || $url[0] == "perfil-D" || $url[0] == "Citas" || $url[0] == "perfil-Administrador" || $url[0] == "perfil-A" || $url[0] == "secretarias") 
+  if ($url[0] == "inicio" || $url[0] == "salir" || $url[0] == "perfil-secretaria" || $url[0] == "perfil-S" || $url[0] == "consultorios" || $url[0] == "E-C" || $url[0] == "doctores" || $url[0] == "pacientes" || $url[0] == "perfil-Paciente" || $url[0] == "perfil-P" || $url[0] == "Ver-consultorios" || $url[0] == "Doctor" || $url[0] == "historial" || $url[0] == "perfil-Doctor" || $url[0] == "perfil-D" || $url[0] == "Citas" || $url[0] == "perfil-Administrador" || $url[0] == "perfil-A" || $url[0] == "secretarias" || $url[0] == "inicio-editar") 
   {
 
     include "modulos/".$url[0].".php";
