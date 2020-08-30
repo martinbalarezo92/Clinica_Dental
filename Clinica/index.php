@@ -23,5 +23,8 @@ require_once "Modelos/adminM.php";
 require_once "Controladores/inicioC.php";
 require_once "Modelos/inicioM.php";
 
+require_once "Controladores/historiaClinicaC.php";
+require_once "Modelos/historiaClinicaM.php";
+
 $plantilla = new Plantilla();
 $plantilla -> llamarPlantilla();

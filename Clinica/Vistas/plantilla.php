@@ -20,8 +20,11 @@ session_start();
 
    ?>
 
+  
 
 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="http://localhost/clinica/Vistas/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
@@ -33,6 +36,8 @@ session_start();
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="http://localhost/clinica/Vistas/dist/css/skins/_all-skins.min.css">
+
+
 
   <!-- DataTables -->
 
@@ -95,7 +100,7 @@ if(isset($_GET["url"])){
   
   $url = explode("/", $_GET["url"]);
 
-  if ($url[0] == "inicio" || $url[0] == "salir" || $url[0] == "perfil-secretaria" || $url[0] == "perfil-S" || $url[0] == "consultorios" || $url[0] == "E-C" || $url[0] == "doctores" || $url[0] == "pacientes" || $url[0] == "perfil-Paciente" || $url[0] == "perfil-P" || $url[0] == "Ver-consultorios" || $url[0] == "Doctor" || $url[0] == "historial" || $url[0] == "perfil-Doctor" || $url[0] == "perfil-D" || $url[0] == "Citas" || $url[0] == "perfil-Administrador" || $url[0] == "perfil-A" || $url[0] == "secretarias" || $url[0] == "inicio-editar") 
+  if ($url[0] == "inicio" || $url[0] == "salir" || $url[0] == "perfil-Secretaria" || $url[0] == "perfil-S" || $url[0] == "consultorios" || $url[0] == "E-C" || $url[0] == "doctores" || $url[0] == "pacientes" || $url[0] == "perfil-Paciente" || $url[0] == "perfil-P" || $url[0] == "Ver-consultorios" || $url[0] == "Doctor" || $url[0] == "historial" || $url[0] == "perfil-Doctor" || $url[0] == "perfil-D" || $url[0] == "Citas" || $url[0] == "perfil-Administrador" || $url[0] == "perfil-A" || $url[0] == "secretarias" || $url[0] == "inicio-editar" || $url[0] == "historiaClinica" || $url[0] == "hc-paciente") 
   {
 
     include "modulos/".$url[0].".php";
@@ -113,9 +118,9 @@ if(isset($_GET["url"])){
 
 } else if (isset($_GET["url"])) {
   # code...
-  if($_GET["url"] == "seleccionar"){
+  if($_GET["url"] == "home"){
    
-    include "modulos/seleccionar.php";
+    include "modulos/home.php";
   
   }else if($_GET["url"] == "ingreso-Secretaria"){
 
@@ -139,7 +144,7 @@ if(isset($_GET["url"])){
 
 
 }else {
-  include "modulos/seleccionar.php";
+  include "modulos/home.php";
 }
 
 

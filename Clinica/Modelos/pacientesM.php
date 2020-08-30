@@ -16,13 +16,19 @@ class PacientesM extends ConexionBD{
 		$pdo -> bindParam(":clave", $datosC["clave"], PDO::PARAM_STR);
 		$pdo -> bindParam(":rol", $datosC["rol"], PDO::PARAM_STR);
 
-		if($pdo -> execute()){
+		
+				   
+		//$pdo_2 = ConexionBD::cBD()->prepare("INSERT INTO historiaclinicatest(id_paciente) VALUES 9");
+
+		if($pdo -> execute() ){
 			return true;
 		}
 
 		$pdo -> close();
+		//$pdo_2 -> close();
+		
 		$pdo = null;
-
+		//$pdo_2 = null;
 
 
 	}

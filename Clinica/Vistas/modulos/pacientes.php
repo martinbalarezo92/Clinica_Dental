@@ -29,15 +29,16 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 			<div class="box-header">
 				
 				<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#CrearPaciente">
+					<i class="fa fa-plus" aria-hidden="true"></i>
 
-					Crear Paciente
+					 Crear Paciente
 				
 				</button>	
 
 			</div>
 
 
-			<div class="box-body">
+			<div class="box-body" >
 				
 				<table class="table table-bordered table-hover table-striped DT">
 					
@@ -50,8 +51,12 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 							<th>Nombre</th>
 							<th>Documento</th>
 							<th>Foto</th>
-							<th>Usuario</th>
-							<th>Contraseña</th>
+
+							<th>Telefono 1</th>
+							<th>Telefono 2</th>
+							<th>Dirección</th>
+							<th>E-mail</th>
+							
 							<th>Editar / Borrar</th>
 																					
 
@@ -97,9 +102,13 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 							echo'
 							
 			
-								<td>'.$value["usuario"].'</td>
+								<td>'.$value["telefono_01"].'</td>
 
-								<td>'.$value["clave"].'</td>
+								<td>'.$value["telefono_02"].'</td>
+
+								<td>'.$value["e_mail"].'</td>
+
+								<td>'.$value["direccion"].'</td>
 
 								<td>
 									

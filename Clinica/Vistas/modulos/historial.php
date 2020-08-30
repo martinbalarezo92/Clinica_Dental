@@ -62,14 +62,12 @@ if($_SESSION["id"] != substr($_GET["url"], 10)){
 								<td>'.$value["inicio"].'</td>';
 
 								$columna = "id";
-
 								$valor = $value["id_doctor"];
 
 								$doctor = DoctoresC::DoctorC($columna, $valor);
 
-								echo
-
-								'<td>'.$doctor["apellido"].' '.$doctor["nombre"].'</td>';
+								#echo '<td> aa </td>';
+								echo '<td>'.$doctor["apellido"].' '.$doctor["nombre"].'</td>';
 
 
 								$columna = "id";

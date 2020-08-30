@@ -32,6 +32,13 @@
           </a>
         </li>
 
+        <li>
+          <a href="http://localhost/clinica/hc-paciente">
+            <i class="fa fa-users"></i>
+            <span>Historia Clinica - Paciente</span>
+          </a>
+        </li>
+
       </ul>
 
     </section>   

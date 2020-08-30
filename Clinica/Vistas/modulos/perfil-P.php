@@ -24,6 +24,7 @@ if($_SESSION["rol"] != "Paciente"){
 				<?php
 
 				$editarPerfil = new PacientesC();
+				
 				$editarPerfil -> EditarPerfilPaciente();
 
 				$editarPerfil -> ActualizarPerfilPacienteC();

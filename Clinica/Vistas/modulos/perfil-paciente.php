@@ -36,6 +36,7 @@ if($_SESSION["rol"] != "Paciente"){
 						<th>Apellido</th>						
 						<th>Foto</th>
 						<th>Documento</th>
+						
 						<th>Editar</th>
 										
 						

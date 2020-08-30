@@ -39,3 +39,4 @@ if($_SESSION["rol"] != "Administrador"){
 	</section>
 
 </div>
+
